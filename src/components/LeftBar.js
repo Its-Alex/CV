@@ -3,6 +3,8 @@
 import { jsx, css } from '@emotion/react'
 import { useTranslation } from 'react-i18next'
 
+import ProfilePicture from './ProfilePicture'
+
 const SidebarCSS = css`
   display: grid;
   place-content: center;
@@ -26,11 +28,11 @@ const SidebarCSS = css`
   }
 `
 
-const ImageProfilCSS = css`
-  width: 100%;
-  max-width: 300px;
-  border-radius: 100%;
-`
+// const ImageProfilCSS = css`
+//   width: 100%;
+//   max-width: 300px;
+//   border-radius: 100%;
+// `
 
 const Sidebar = (props) => {
   const { t } = useTranslation()
@@ -56,7 +58,7 @@ const Sidebar = (props) => {
           }
         `}
       >
-        <img
+        {/* <img
           id='sidebar-img'
           src='https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=512'
           srcSet={`https://s.gravatar.com/avatar/558cb4dd16019bf6123d241ad5d6ee56?s=320 64w,
@@ -68,7 +70,8 @@ const Sidebar = (props) => {
               512px'
           alt='profil'
           css={ImageProfilCSS}
-        />
+        /> */}
+        <ProfilePicture />
       </div>
       <ul
         id='sidebar-list'
