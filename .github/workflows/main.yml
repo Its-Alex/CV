@@ -5,16 +5,20 @@ on: [push, pull_request, workflow_dispatch]
 jobs:
   lint:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node_version: ['node:14-alpine', 'node:15-alpine']
-    container: ${{ matrix.node_version }}
+    # strategy:
+    #   matrix:
+    #     node_version: ['node:14-alpine', 'node:15-alpine']
+    # container: ${{ matrix.node_version }}
     steps:
-      - name: Checkout project
-        uses: actions/checkout@v2
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Eslint
-        run: yarn run lint
-      - name: Stylelint
-        run: yarn run lint:css
+      # - name: Checkout project
+      #   uses: actions/checkout@v2
+      # - name: Install dependencies
+      #   run: yarn install --frozen-lockfile
+      # - name: Eslint
+      #   run: yarn run lint
+      # - name: Stylelint
+      #   run: yarn run lint:css
+      - name: Test expression
+        env:
+          TEST_EXPRESSION: ${{ github.ref == 'refs/heads/alexandre-marre-test-ci' }}
+        run: echo "$TEST_EXPRESSION"
